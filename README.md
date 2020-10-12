@@ -1,9 +1,11 @@
 口令猜测大作业 (Password Guessing Project)
 ======================================================
 ## 漫步猜测攻击 (Trawling Attack)
->所谓漫步攻击（Trawling Attacking）是指攻击者不关心具体的攻击对象是谁，其唯一目标是在允 许的猜测次数下，猜测出越多的口令越好．这意味 着，最优的攻击者会首先猜测排名 r=1 的口令，接 着猜测排名 r=2 的口令，依次类推．
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+所谓漫步攻击（Trawling Attacking）是指攻击者不关心具体的攻击对象是谁，其唯一目标是在允 许的猜测次数下，猜测出越多的口令越好．这意味着，最优的攻击者会首先猜测排名 r=1 的口令，接着猜测排名 r=2 的口令，依次类推．
 
->参考references中的《口令安全研究进展》.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+参考references中的《口令安全研究进展》.
 
 ## 文件及目录说明
 - code: 代码目录，可大致分为三类
@@ -29,20 +31,31 @@
 - reference: 参考资料
 
 ## 使用说明 (How to use)
->首先在命令行中，进入code目录.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+首先在命令行中，进入code目录.
+
 1. 训练模型：
->>运行trainer.py模块，需要提供--model和--dataset参数（也可以分别缩写为-m和-d），比如下面这样
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+运行trainer.py模块，需要提供--model和--dataset参数（也可以分别缩写为-m和-d），比如下面这样
+
 ```shell
 python trainer.py --model hmm4 --dataset csdn
 ```
->>就会使用csdn数据集训练一个隐马尔可夫模型，生成的模型以pickle序列化文件的形式（hmm4_csdn.pk）存于model中.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+就会使用csdn数据集训练一个隐马尔可夫模型，生成的模型以pickle序列化文件的形式（hmm4_csdn.pk）存于model中.
+
 
 2. 使用模型生成口令：
->>运行tester.py模块，需要提供--model和--dataset参数（也可以分别缩写为-m和-d），比如下面这样
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+运行tester.py模块，需要提供--model和--dataset参数（也可以分别缩写为-m和-d），比如下面这样
 ```shell
 python tester.py --model hmm4 --dataset csdn
 ```
->>就会使用基于csdn数据集训练的隐马尔可夫模型，随机生成100条口令，控制台中打印出来.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+就会使用基于csdn数据集训练的隐马尔可夫模型，随机生成100条口令，控制台中打印出来.
 ```text
 Password generated:
 807508213881
@@ -56,7 +69,9 @@ xzuzy824
 ```
 
 3. 添加其他模型：
->>如果要添加除hmm4和mc之外的模型，参照hmm4.py和mc.py文件的格式，定义一个模型class，其中包含fit和generate方法即可。最后需要改一下trainer.py和tester.py，具体可见代码。
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+如果要添加除hmm4和mc之外的模型，参照hmm4.py和mc.py文件的格式，定义一个模型class，其中包含fit和generate方法即可。最后需要改一下trainer.py和tester.py，具体可见代码。
 
 ## 改进工作方向 (TODO List)
 - 调研各种方法
