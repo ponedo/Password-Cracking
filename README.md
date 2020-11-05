@@ -10,8 +10,8 @@
 ## 文件及目录说明
 - code: 代码目录，可大致分为三类
 1. 可运行模块
-    + trainer.py: 训练模型的模块，需要提供-m/--model和-d/--dataset参数，详细说明见下.
-    + tester.py: 测试模型的模块，需要提供-m/--model和-d/--dataset参数，详细说明见下.
+    + train.py: 训练模型的模块，需要提供-m/--model和-d/--dataset参数，详细说明见下.
+    + generate.py: 测试模型的模块，需要提供-m/--model和-d/--dataset参数，详细说明见下.
 
 2. 口令生成模型构建模块
     + hmm4.py: 实现了reference《一种基于隐马尔可夫模型的口令猜测方法》的方法，感觉效果一般.
@@ -38,10 +38,10 @@
 1. 训练模型：
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-运行trainer.py模块，需要提供--model和--dataset参数（也可以分别缩写为-m和-d），比如下面这样
+运行train.py模块，需要提供--model和--dataset参数（也可以分别缩写为-m和-d），比如下面这样
 
 ```shell
-python trainer.py --model hmm4 --dataset csdn
+python train.py --model hmm4 --dataset csdn
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 就会使用csdn数据集训练一个隐马尔可夫模型，生成的模型以pickle序列化文件的形式（hmm4_csdn.pk）存于model中.
@@ -50,9 +50,9 @@ python trainer.py --model hmm4 --dataset csdn
 2. 使用模型生成口令：
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-运行tester.py模块，需要提供--model和--dataset参数（也可以分别缩写为-m和-d），比如下面这样
+运行generate.py模块，需要提供--model和--dataset参数（也可以分别缩写为-m和-d），比如下面这样
 ```shell
-python tester.py --model hmm4 --dataset csdn
+python generate.py --model hmm4 --dataset csdn
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 就会使用基于csdn数据集训练的隐马尔可夫模型，随机生成100条口令，控制台中打印出来.
@@ -71,7 +71,7 @@ xzuzy824
 3. 添加其他模型：
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-如果要添加除hmm4和mc之外的模型，参照hmm4.py和mc.py文件的格式，定义一个模型class，其中包含fit和generate方法即可。最后需要改一下trainer.py和tester.py，具体可见代码。
+如果要添加除hmm4和mc之外的模型，参照hmm4.py和mc.py文件的格式，定义一个模型class，其中包含fit和generate方法即可。最后需要改一下train.py和generate.py，具体可见代码。
 
 ## 改进工作方向 (TODO List)
 - 调研各种方法
