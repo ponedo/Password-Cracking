@@ -1,0 +1,7 @@
+experiments/
+venv/
+data/rockyou-train.txt
+*.pyc
+.ipynb_checkpoints
+data/plaintxt*
+data/www.csdn.net.sql
